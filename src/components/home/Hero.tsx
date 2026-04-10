@@ -5,7 +5,6 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { fadeUp, staggerContainer } from "@/lib/animations";
 import Button from "@/components/shared/Button";
-import PhoneLink from "@/components/shared/PhoneLink";
 import { INDUSTRY_IMAGES } from "@/lib/images";
 import { INDUSTRIES } from "@/lib/constants";
 
@@ -54,19 +53,15 @@ export default function Hero() {
 
           <motion.div
             variants={fadeUp}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6"
+            className="mb-6"
           >
             <Button
               href="/contact"
               size="lg"
-              className="text-base px-10"
+              className="text-base px-12 py-4"
             >
               Get Started
             </Button>
-            <PhoneLink
-              size="lg"
-              className="text-white/90 hover:text-white"
-            />
           </motion.div>
         </motion.div>
 
