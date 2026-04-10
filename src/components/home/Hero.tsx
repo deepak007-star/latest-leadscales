@@ -60,7 +60,7 @@ export default function Hero() {
               size="lg"
               className="text-base px-12 py-4"
             >
-              Get Started
+              Increase My Revenue
             </Button>
           </motion.div>
         </motion.div>
