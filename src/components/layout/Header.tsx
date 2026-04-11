@@ -11,7 +11,6 @@ import {
 import { useScrollDirection } from "@/hooks/useScrollDirection";
 import { COMPANY_NAME, NAV_LINKS, INDUSTRIES } from "@/lib/constants";
 import { INDUSTRY_IMAGES } from "@/lib/images";
-import PhoneLink from "@/components/shared/PhoneLink";
 import Button from "@/components/shared/Button";
 import { cn } from "@/lib/utils";
 
@@ -172,7 +171,6 @@ export default function Header() {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-5">
-            <PhoneLink size="sm" />
             <Button href="/contact" size="sm" className="shadow-md">
               Get Started
             </Button>
@@ -237,7 +235,6 @@ export default function Header() {
               ))}
 
               <div className="px-4 pt-4 space-y-3 border-t border-neutral-100 mt-2">
-                <PhoneLink className="justify-center w-full" />
                 <Button href="/contact" className="w-full">
                   Get Started
                 </Button>
