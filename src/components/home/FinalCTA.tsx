@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { fadeUp, staggerContainer } from "@/lib/animations";
 import Button from "@/components/shared/Button";
-import PhoneLink from "@/components/shared/PhoneLink";
 
 export default function FinalCTA() {
   return (
@@ -40,10 +39,6 @@ export default function FinalCTA() {
             >
               Get Your Free Strategy Call
             </Button>
-            <PhoneLink
-              size="lg"
-              className="text-white/80 hover:text-white"
-            />
           </motion.div>
         </div>
       </motion.div>
