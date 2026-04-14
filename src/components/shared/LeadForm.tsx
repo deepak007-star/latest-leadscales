@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Button from "./Button";
-import { INDUSTRIES } from "@/lib/constants";
+import { INDUSTRIES, CALENDLY_URL } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 interface LeadFormProps {
@@ -20,10 +20,12 @@ export default function LeadForm({
 }: LeadFormProps) {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setLoading(true);
+    setError(false);
 
     const formData = new FormData(e.currentTarget);
     const data = {
@@ -36,14 +38,24 @@ export default function LeadForm({
     };
 
     try {
-      await fetch("/api/contact", {
+      const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
+
+      if (!res.ok) throw new Error("Failed");
+
       setSubmitted(true);
+
+      // Open Calendly popup after a brief delay so user sees the success state
+      setTimeout(() => {
+        if (window.Calendly) {
+          window.Calendly.initPopupWidget({ url: CALENDLY_URL });
+        }
+      }, 1000);
     } catch {
-      setSubmitted(true);
+      setError(true);
     } finally {
       setLoading(false);
     }
@@ -65,6 +77,19 @@ export default function LeadForm({
           We&apos;ll be in touch within 24 hours to schedule your free strategy
           call.
         </p>
+        <p className="mt-3 text-sm text-neutral-400">
+          Calendly is opening so you can pick a time...
+        </p>
+        <button
+          onClick={() => {
+            if (window.Calendly) {
+              window.Calendly.initPopupWidget({ url: CALENDLY_URL });
+            }
+          }}
+          className="mt-4 text-primary-600 font-semibold hover:text-primary-700 underline cursor-pointer"
+        >
+          Book a Time Now
+        </button>
       </div>
     );
   }
@@ -80,6 +105,11 @@ export default function LeadForm({
       <h3 className="font-heading text-h4 font-bold text-neutral-900 mb-6">
         Get Your Free Strategy Call
       </h3>
+      {error && (
+        <p className="mb-4 text-sm text-red-600 bg-red-50 p-3 rounded-lg">
+          Something went wrong. Please try again.
+        </p>
+      )}
       <div className="space-y-4">
         <input
           type="text"

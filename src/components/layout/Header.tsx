@@ -172,7 +172,6 @@ export default function Header() {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-5">
-            <PhoneLink size="sm" />
             <Button href="/contact" size="sm" className="shadow-md">
               Get Started
             </Button>

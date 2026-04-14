@@ -10,97 +10,73 @@ import { INDUSTRIES } from "@/lib/constants";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-neutral-900">
-      {/* Video Background */}
-      <div className="absolute inset-0">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-          poster="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80"
-        >
-          <source
-            src="https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4"
-            type="video/mp4"
-          />
-        </video>
-        <div className="absolute inset-0 bg-neutral-900/75" />
+    <section className="relative min-h-screen flex flex-col overflow-hidden bg-neutral-900">
+      {/* Industry image columns as background — Scorpion-style */}
+      <div className="absolute inset-0 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6">
+        {INDUSTRIES.map((industry) => {
+          const img =
+            INDUSTRY_IMAGES[industry.slug as keyof typeof INDUSTRY_IMAGES];
+          return (
+            <Link
+              key={industry.slug}
+              href={`/industries/${industry.slug}`}
+              className="group relative overflow-hidden"
+            >
+              <Image
+                src={img.hero}
+                alt={industry.name}
+                fill
+                unoptimized
+                className="object-cover group-hover:scale-110 transition-transform duration-700"
+                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 16.67vw"
+                priority
+              />
+              {/* Dark overlay — starts at 50%, fades to 15% on hover */}
+              <div className="absolute inset-0 bg-black transition-opacity duration-500 opacity-50 group-hover:opacity-[0.15]" />
+              <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5">
+                <span className="text-white font-heading font-bold text-base sm:text-lg lg:text-xl drop-shadow-lg">
+                  {industry.name}
+                </span>
+              </div>
+            </Link>
+          );
+        })}
       </div>
 
-      <div className="container-custom relative z-10 pt-28 pb-16">
+      {/* Center content overlay */}
+      <div className="relative z-10 flex-1 flex items-center justify-center pt-28 pb-16 pointer-events-none">
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           animate="visible"
-          className="text-center max-w-4xl mx-auto"
+          className="text-center max-w-3xl mx-auto px-4 pointer-events-none"
         >
           <motion.h1
             variants={fadeUp}
-            className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-6 tracking-tight"
+            className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-white leading-[1.05] mb-6 tracking-tight"
+            style={{ textShadow: "0 4px 30px rgba(0,0,0,0.9), 0 2px 10px rgba(0,0,0,0.8)" }}
           >
             Maximize Your Revenue
           </motion.h1>
 
           <motion.p
             variants={fadeUp}
-            className="text-lg md:text-xl text-neutral-300 max-w-2xl mx-auto mb-10 leading-relaxed"
+            className="text-xl md:text-2xl text-white font-medium max-w-2xl mx-auto mb-10 leading-relaxed"
+            style={{ textShadow: "0 4px 30px rgba(0,0,0,0.9), 0 2px 10px rgba(0,0,0,0.8)" }}
           >
             The #1 marketing platform for home service contractors. More calls,
             more jobs, more revenue — guaranteed.
           </motion.p>
 
-          <motion.div
-            variants={fadeUp}
-            className="mb-6"
-          >
+          <motion.div variants={fadeUp} className="pointer-events-auto">
             <Button
               href="/contact"
               size="lg"
-              className="text-base px-12 py-4"
+              className="text-base px-12 py-4 shadow-xl"
             >
               Increase My Revenue
             </Button>
           </motion.div>
-        </motion.div>
-
-        {/* Industries We Serve — Scorpion-style grid */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.7 }}
-          className="mt-12"
-        >
-          <p className="text-center text-neutral-400 text-sm font-medium uppercase tracking-widest mb-6">
-            Industries We Serve
-          </p>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-            {INDUSTRIES.map((industry) => {
-              const img =
-                INDUSTRY_IMAGES[industry.slug as keyof typeof INDUSTRY_IMAGES];
-              return (
-                <Link
-                  key={industry.slug}
-                  href={`/industries/${industry.slug}`}
-                  className="group relative rounded-xl overflow-hidden h-36 sm:h-40"
-                >
-                  <Image
-                    src={img.card}
-                    alt={industry.name}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-neutral-900/50 group-hover:bg-primary-900/60 transition-colors duration-300" />
-                  <div className="absolute inset-0 flex items-end p-4">
-                    <span className="text-white font-heading font-bold text-sm sm:text-base">
-                      {industry.name}
-                    </span>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
         </motion.div>
       </div>
     </section>

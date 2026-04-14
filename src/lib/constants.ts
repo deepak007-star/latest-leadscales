@@ -2,7 +2,7 @@ export const COMPANY_NAME = "LeadScale";
 export const PHONE_NUMBER = "+18005551234";
 export const PHONE_DISPLAY = "(800) 555-1234";
 export const EMAIL = "info@leadscale.com";
-export const CALENDLY_URL = "https://calendly.com/leadscale/strategy-call";
+export const CALENDLY_URL = "https://calendly.com/leadscale_service";
 
 export const NAV_LINKS = [
   { label: "Services", href: "/services" },

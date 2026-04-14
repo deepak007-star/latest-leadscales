@@ -2,44 +2,44 @@
 
 export const HERO_IMAGES = {
   background:
-    "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80",
+    "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=2400&q=90",
   dashboard:
     "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
 };
 
 export const INDUSTRY_IMAGES = {
   hvac: {
-    hero: "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=1920&q=80",
+    hero: "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=2400&q=90",
     thumb: "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=200&q=80",
     card: "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&q=80",
     video: "https://videos.pexels.com/video-files/7641731/7641731-uhd_2560_1440_30fps.mp4",
   },
   plumbing: {
-    hero: "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=1920&q=80",
+    hero: "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=2400&q=90",
     thumb: "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=200&q=80",
     card: "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=600&q=80",
     video: "https://videos.pexels.com/video-files/6368024/6368024-uhd_2560_1440_24fps.mp4",
   },
   roofing: {
-    hero: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80",
+    hero: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=2400&q=90",
     thumb: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=200&q=80",
     card: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80",
     video: "https://videos.pexels.com/video-files/3773486/3773486-uhd_2560_1440_30fps.mp4",
   },
   dentist: {
-    hero: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1920&q=80",
+    hero: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=2400&q=90",
     thumb: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=200&q=80",
     card: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&q=80",
     video: "https://videos.pexels.com/video-files/3209263/3209263-uhd_2560_1440_25fps.mp4",
   },
   "real-estate": {
-    hero: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1920&q=80",
+    hero: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=2400&q=90",
     thumb: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=200&q=80",
     card: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&q=80",
     video: "https://videos.pexels.com/video-files/5137598/5137598-uhd_2560_1440_25fps.mp4",
   },
   electrician: {
-    hero: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=1920&q=80",
+    hero: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=2400&q=90",
     thumb: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=200&q=80",
     card: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&q=80",
     video: "https://videos.pexels.com/video-files/8540694/8540694-uhd_2560_1440_25fps.mp4",
