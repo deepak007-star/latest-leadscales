@@ -4,55 +4,35 @@ export interface Testimonial {
   industry: string;
   quote: string;
   rating: number;
+  result?: string;
 }
 
 export const testimonials: Testimonial[] = [
   {
     name: "Mike R.",
-    company: "Comfort Air HVAC",
+    company: "HVAC Contractor, Phoenix AZ",
     industry: "HVAC",
     quote:
-      "LeadScale transformed our business. We went from struggling to fill our schedule to turning down jobs because we're fully booked.",
+      "We went from 15 calls a month to over 60. LeadScale paid for itself in the first week.",
     rating: 5,
+    result: "4x increase in monthly calls",
   },
   {
-    name: "Carlos D.",
-    company: "RapidFlow Plumbing",
+    name: "Sarah T.",
+    company: "Plumbing Company Owner, Dallas TX",
     industry: "Plumbing",
     quote:
-      "We used to rely on word of mouth. Now we have a predictable flow of calls every single day. LeadScale changed everything.",
+      "I was spending $3,000/mo on ads and getting junk leads. LeadScale cut my cost per lead in half and doubled my bookings.",
     rating: 5,
+    result: "52% lower cost per lead",
   },
   {
-    name: "David W.",
-    company: "Summit Roofing",
+    name: "James L.",
+    company: "Roofing Contractor, Atlanta GA",
     industry: "Roofing",
     quote:
-      "LeadScale cut our cost per lead by 70% and tripled our estimate volume. We're now the busiest roofer in our area.",
+      "They actually understand the contractor business. First agency that didn't feel like I was explaining my job to them.",
     rating: 5,
-  },
-  {
-    name: "Dr. Amanda K.",
-    company: "Bright Smile Dental",
-    industry: "Dentist",
-    quote:
-      "Our implant cases doubled within 3 months. These are high-value patients who are ready to commit to treatment.",
-    rating: 5,
-  },
-  {
-    name: "Jessica M.",
-    company: "Prime Realty Group",
-    industry: "Real Estate",
-    quote:
-      "I stopped buying Zillow leads and invested with LeadScale instead. My business tripled and I own all my leads.",
-    rating: 5,
-  },
-  {
-    name: "Tom H.",
-    company: "Spark Electric",
-    industry: "Electrician",
-    quote:
-      "LeadScale gets us the kind of jobs we actually want — panel upgrades, whole-house rewires, EV charger installs.",
-    rating: 5,
+    result: "38 booked jobs in first 60 days",
   },
 ];

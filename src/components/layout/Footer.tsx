@@ -5,7 +5,6 @@ import {
   INDUSTRIES,
   SERVICES,
 } from "@/lib/constants";
-import PhoneLink from "@/components/shared/PhoneLink";
 
 export default function Footer() {
   return (
@@ -30,10 +29,6 @@ export default function Footer() {
               proven digital marketing strategies.
             </p>
             <div className="space-y-3">
-              <PhoneLink
-                className="text-white hover:text-primary-400"
-                size="sm"
-              />
               <a
                 href={`mailto:${EMAIL}`}
                 className="block text-sm text-neutral-400 hover:text-primary-400 transition-colors"

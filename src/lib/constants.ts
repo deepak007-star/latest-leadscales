@@ -1,7 +1,5 @@
 export const COMPANY_NAME = "LeadScale";
-export const PHONE_NUMBER = "+18005551234";
-export const PHONE_DISPLAY = "(800) 555-1234";
-export const EMAIL = "info@leadscale.com";
+export const EMAIL = "growth@leadscaleservice.com";
 export const CALENDLY_URL = "https://calendly.com/leadscale_service";
 
 export const NAV_LINKS = [
@@ -33,28 +31,20 @@ export const SERVICES = [
     icon: "CursorArrowRaysIcon",
   },
   {
-    name: "Web Design",
-    slug: "web-design",
-    description: "High-converting websites built to turn visitors into paying customers.",
-    icon: "ComputerDesktopIcon",
+    name: "Social Media",
+    slug: "social-media",
+    description: "Build trust and stay top of mind with consistent, professional social media content.",
+    icon: "ChatBubbleLeftRightIcon",
   },
   {
-    name: "Google My Business",
-    slug: "gmb",
+    name: "Google Business Profile",
+    slug: "gbp",
     description: "Optimize your Google Business Profile to stand out in maps and local searches.",
     icon: "MapPinIcon",
   },
-  {
-    name: "Email Marketing",
-    slug: "email-marketing",
-    description: "Automated email campaigns that nurture leads and drive repeat business.",
-    icon: "EnvelopeIcon",
-  },
 ];
 
-export const STATS = [
-  { value: 500, suffix: "+", label: "Contractors Served" },
-  { value: 50, prefix: "$", suffix: "M+", label: "Revenue Generated" },
-  { value: 10000, suffix: "+", label: "Leads Delivered" },
-  { value: 4.9, suffix: "", label: "Google Rating" },
+export const STATS: { value: number; suffix: string; label: string; prefix?: string }[] = [
+  { value: 50, suffix: "+", label: "Contractors Served" },
+  { value: 4.9, suffix: "★", label: "Average Client Rating" },
 ];

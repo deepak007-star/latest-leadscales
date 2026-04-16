@@ -19,14 +19,13 @@ export default function FinalCTA() {
             variants={fadeUp}
             className="font-heading text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight"
           >
-            Ready to Fill Your Schedule?
+            Your Competitors Aren&apos;t Waiting. Neither Should You.
           </motion.h2>
           <motion.p
             variants={fadeUp}
             className="text-neutral-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
           >
-            Join 500+ contractors who trust LeadScale to deliver consistent,
-            high-quality leads every single month.
+            Book your free strategy call today. We&apos;ll show you exactly how many leads you&apos;re missing — and how to get them.
           </motion.p>
           <motion.div
             variants={fadeUp}
@@ -37,7 +36,7 @@ export default function FinalCTA() {
               size="lg"
               className="bg-white text-neutral-900 hover:bg-neutral-100 text-base"
             >
-              Get Your Free Strategy Call
+              Get My Free Growth Plan
             </Button>
           </motion.div>
         </div>

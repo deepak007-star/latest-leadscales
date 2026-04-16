@@ -4,7 +4,7 @@ import nodemailer from "nodemailer";
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
   port: Number(process.env.SMTP_PORT) || 587,
-  secure: false,
+  secure: true,
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS,
@@ -14,7 +14,7 @@ const transporter = nodemailer.createTransport({
 export async function POST(request: NextRequest) {
   try {
     const data = await request.json();
-    const { name, email, phone, businessType, message, source } = data;
+    const { name, businessName, email, phone, businessType, budget, message, source } = data;
 
     await transporter.sendMail({
       from: `"LeadScale Website" <${process.env.SMTP_USER}>`,
@@ -29,19 +29,27 @@ export async function POST(request: NextRequest) {
               <td style="padding: 8px 12px; color: #1a1a1a;">${name}</td>
             </tr>
             <tr style="background: #f9fafb;">
+              <td style="padding: 8px 12px; font-weight: bold; color: #555;">Business</td>
+              <td style="padding: 8px 12px; color: #1a1a1a;">${businessName || "Not specified"}</td>
+            </tr>
+            <tr>
               <td style="padding: 8px 12px; font-weight: bold; color: #555;">Email</td>
               <td style="padding: 8px 12px; color: #1a1a1a;"><a href="mailto:${email}">${email}</a></td>
             </tr>
-            <tr>
+            <tr style="background: #f9fafb;">
               <td style="padding: 8px 12px; font-weight: bold; color: #555;">Phone</td>
               <td style="padding: 8px 12px; color: #1a1a1a;"><a href="tel:${phone}">${phone}</a></td>
             </tr>
-            <tr style="background: #f9fafb;">
+            <tr>
               <td style="padding: 8px 12px; font-weight: bold; color: #555;">Industry</td>
               <td style="padding: 8px 12px; color: #1a1a1a;">${businessType || "Not specified"}</td>
             </tr>
+            <tr style="background: #f9fafb;">
+              <td style="padding: 8px 12px; font-weight: bold; color: #555;">Budget</td>
+              <td style="padding: 8px 12px; color: #1a1a1a;">${budget || "Not specified"}</td>
+            </tr>
             <tr>
-              <td style="padding: 8px 12px; font-weight: bold; color: #555;">Message</td>
+              <td style="padding: 8px 12px; font-weight: bold; color: #555;">Challenge</td>
               <td style="padding: 8px 12px; color: #1a1a1a;">${message || "No message provided"}</td>
             </tr>
             <tr style="background: #f9fafb;">

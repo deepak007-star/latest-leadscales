@@ -2,14 +2,11 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { industries } from "@/data/industries";
 import IndustryHero from "@/components/industry/IndustryHero";
-import IndustryNav from "@/components/industry/IndustryNav";
-import TrustBar from "@/components/home/TrustBar";
 import PainPoints from "@/components/industry/PainPoints";
-import IndustryShowcase from "@/components/industry/IndustryShowcase";
-import IndustryServices from "@/components/industry/IndustryServices";
-import StatsCounter from "@/components/home/StatsCounter";
-import CaseStudy from "@/components/industry/CaseStudy";
+import IndustrySolutions from "@/components/industry/IndustrySolutions";
+import IndustryWhatYouGet from "@/components/industry/IndustryWhatYouGet";
 import IndustryTestimonials from "@/components/industry/IndustryTestimonials";
+import IndustryFAQ from "@/components/industry/IndustryFAQ";
 import LeadForm from "@/components/shared/LeadForm";
 import CalendlyEmbed from "@/components/shared/CalendlyEmbed";
 import IndustryCTA from "@/components/industry/IndustryCTA";
@@ -40,45 +37,29 @@ export default function IndustryPage({ params }: PageProps) {
   return (
     <>
       <IndustryHero data={industry} />
-      <IndustryNav
-        industryName={industry.name}
-        industrySlug={industry.slug}
-      />
-      <TrustBar />
 
-      <div id="challenges">
-        <PainPoints
-          painPoints={industry.painPoints}
-          industryName={industry.name}
-        />
-      </div>
-
-      <IndustryShowcase
-        industrySlug={industry.slug}
+      <PainPoints
+        painPoints={industry.painPoints}
+        closer={industry.painPointsCloser}
         industryName={industry.name}
       />
 
-      <div id="solutions">
-        <IndustryServices
-          services={industry.services}
-          industryName={industry.name}
-          industrySlug={industry.slug}
-        />
-      </div>
+      <IndustrySolutions
+        solutions={industry.solutions}
+        industryName={industry.name}
+      />
 
-      <StatsCounter stats={industry.stats} />
-
-      <div id="results">
-        <CaseStudy
-          caseStudy={industry.caseStudy}
-          industrySlug={industry.slug}
-        />
-      </div>
+      <IndustryWhatYouGet
+        items={industry.whatYouGet}
+        industryName={industry.name}
+      />
 
       <IndustryTestimonials
         testimonials={industry.testimonials}
         industryName={industry.name}
       />
+
+      <IndustryFAQ faqs={industry.faqs} />
 
       <div id="contact" className="section-padding bg-white">
         <div className="container-custom">
@@ -89,8 +70,8 @@ export default function IndustryPage({ params }: PageProps) {
               </h2>
               <p className="text-neutral-600 text-lg leading-relaxed mb-6">
                 Fill out the form and one of our {industry.name.toLowerCase()}{" "}
-                marketing specialists will contact you within 24 hours with a
-                custom growth plan.
+                marketing specialists will contact you within 2 business hours
+                with a custom growth plan.
               </p>
               <ul className="space-y-3 text-neutral-700">
                 {[

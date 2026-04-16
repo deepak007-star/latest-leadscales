@@ -2,8 +2,25 @@
 
 import { useState } from "react";
 import Button from "./Button";
-import { INDUSTRIES, CALENDLY_URL } from "@/lib/constants";
+import { CALENDLY_URL } from "@/lib/constants";
 import { cn } from "@/lib/utils";
+
+const INDUSTRY_OPTIONS = [
+  "HVAC",
+  "Plumbing",
+  "Roofing",
+  "Electrical",
+  "Dentistry",
+  "Real Estate",
+  "Other",
+];
+
+const BUDGET_OPTIONS = [
+  "Under $1,000",
+  "$1,000–$2,000",
+  "$2,000–$5,000",
+  "$5,000+",
+];
 
 interface LeadFormProps {
   source?: string;
@@ -30,9 +47,11 @@ export default function LeadForm({
     const formData = new FormData(e.currentTarget);
     const data = {
       name: formData.get("name"),
+      businessName: formData.get("businessName"),
       email: formData.get("email"),
       phone: formData.get("phone"),
       businessType: formData.get("businessType"),
+      budget: formData.get("budget"),
       message: formData.get("message"),
       source,
     };
@@ -74,8 +93,8 @@ export default function LeadForm({
           Thank You!
         </h3>
         <p className="text-neutral-600">
-          We&apos;ll be in touch within 24 hours to schedule your free strategy
-          call.
+          We&apos;ll be in touch within 2 business hours to schedule your free
+          strategy call.
         </p>
         <p className="mt-3 text-sm text-neutral-400">
           Calendly is opening so you can pick a time...
@@ -119,9 +138,9 @@ export default function LeadForm({
           className="w-full px-4 py-3 rounded-lg border border-neutral-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-100 outline-none transition-all"
         />
         <input
-          type="email"
-          name="email"
-          placeholder="Email Address"
+          type="text"
+          name="businessName"
+          placeholder="Business Name"
           required
           className="w-full px-4 py-3 rounded-lg border border-neutral-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-100 outline-none transition-all"
         />
@@ -132,35 +151,57 @@ export default function LeadForm({
           required
           className="w-full px-4 py-3 rounded-lg border border-neutral-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-100 outline-none transition-all"
         />
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          required
+          className="w-full px-4 py-3 rounded-lg border border-neutral-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-100 outline-none transition-all"
+        />
         <select
           name="businessType"
           defaultValue={industry || ""}
           className="w-full px-4 py-3 rounded-lg border border-neutral-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-100 outline-none transition-all text-neutral-600"
         >
           <option value="" disabled>
-            Select Your Industry
+            Industry
           </option>
-          {INDUSTRIES.map((ind) => (
-            <option key={ind.slug} value={ind.name}>
-              {ind.name}
+          {INDUSTRY_OPTIONS.map((ind) => (
+            <option key={ind} value={ind}>
+              {ind}
             </option>
           ))}
-          <option value="Other">Other</option>
         </select>
         {variant === "inline" && (
-          <textarea
-            name="message"
-            placeholder="Tell us about your business (optional)"
-            rows={3}
-            className="w-full px-4 py-3 rounded-lg border border-neutral-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-100 outline-none transition-all resize-none"
-          />
+          <>
+            <select
+              name="budget"
+              defaultValue=""
+              className="w-full px-4 py-3 rounded-lg border border-neutral-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-100 outline-none transition-all text-neutral-600"
+            >
+              <option value="" disabled>
+                Monthly Marketing Budget
+              </option>
+              {BUDGET_OPTIONS.map((budget) => (
+                <option key={budget} value={budget}>
+                  {budget}
+                </option>
+              ))}
+            </select>
+            <textarea
+              name="message"
+              placeholder="Biggest marketing challenge right now?"
+              rows={3}
+              className="w-full px-4 py-3 rounded-lg border border-neutral-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-100 outline-none transition-all resize-none"
+            />
+          </>
         )}
         <Button type="submit" size="lg" className="w-full">
-          {loading ? "Sending..." : "Get My Free Strategy Call"}
+          {loading ? "Sending..." : "Book My Free Strategy Call"}
         </Button>
       </div>
       <p className="mt-4 text-center text-small text-neutral-400">
-        Join 500+ contractors growing with LeadScale
+        No spam. No pressure. We respond within 2 business hours.
       </p>
     </form>
   );

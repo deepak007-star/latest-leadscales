@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { fadeUp, staggerContainer } from "@/lib/animations";
 import Button from "@/components/shared/Button";
-import PhoneLink from "@/components/shared/PhoneLink";
 import type { IndustryData } from "@/data/industries";
 
 interface IndustryCTAProps {
@@ -41,12 +40,8 @@ export default function IndustryCTA({ data }: IndustryCTAProps) {
             size="lg"
             className="bg-white text-neutral-900 hover:bg-neutral-100 text-base"
           >
-            Get Your Free Strategy Call
+            {data.heroCta}
           </Button>
-          <PhoneLink
-            size="lg"
-            className="text-white/80 hover:text-white"
-          />
         </motion.div>
       </motion.div>
     </section>

@@ -3,11 +3,10 @@ import Image from "next/image";
 import {
   MagnifyingGlassIcon,
   CursorArrowRaysIcon,
-  ComputerDesktopIcon,
+  MegaphoneIcon,
   MapPinIcon,
-  EnvelopeIcon,
 } from "@heroicons/react/24/outline";
-import { CheckCircleIcon } from "@heroicons/react/24/solid";
+import { CheckCircleIcon, CheckIcon } from "@heroicons/react/24/solid";
 import GradientText from "@/components/shared/GradientText";
 import SectionWrapper from "@/components/shared/SectionWrapper";
 import Button from "@/components/shared/Button";
@@ -15,87 +14,127 @@ import FinalCTA from "@/components/home/FinalCTA";
 import { SERVICE_IMAGES } from "@/lib/images";
 
 export const metadata: Metadata = {
-  title: "Services | LeadScale",
+  title: "SEO + Ads + Social for Contractors | $1,999/mo | LeadScale",
   description:
-    "LeadScale's digital marketing services for contractors: SEO, Paid Ads, Web Design, Google My Business, and Email Marketing.",
+    "Everything your contracting business needs — SEO, Google Ads, Meta Ads, social media, and GBP. One price. No contracts.",
 };
 
 const services = [
   {
-    name: "Search Engine Optimization (SEO)",
+    name: "Search Engine Optimization",
+    tagline: "Show Up First When Homeowners Search for Your Services",
     description:
-      "Dominate local search results and get found by customers actively looking for your services. We optimize your website, build local citations, and create content that ranks — so you're the first call when someone needs a contractor.",
+      'When someone Googles "HVAC repair near me" or "best plumber in [city]," you need to be in the top 3.',
     icon: <MagnifyingGlassIcon className="h-7 w-7" />,
     image: SERVICE_IMAGES.seo,
     features: [
-      "Local SEO and Google Maps optimization",
-      "Service-area and neighborhood targeting",
-      "Content strategy for high-intent keywords",
-      "Technical SEO for peak performance",
-      "Monthly ranking reports and analytics",
-      "Competitor analysis and outranking strategy",
+      "On-page optimization (titles, content, speed, mobile)",
+      "Local SEO to dominate Google Maps and the Local Pack",
+      "Content strategy targeting searches your customers actually make",
+      "Technical SEO audits and fixes",
+      "Monthly keyword tracking and ranking reports",
     ],
+    result: "Avg. 312% increase in organic traffic within 6 months.",
   },
   {
-    name: "Paid Advertising (PPC)",
+    name: "Paid Advertising",
+    tagline: "Stop Wasting Ad Budget on Clicks That Never Call",
     description:
-      "Targeted Google and Facebook ads that deliver qualified leads directly to your phone. We manage every aspect — from keyword research to ad copy to landing pages — so you get maximum ROI from every dollar spent.",
+      "We build campaigns that target homeowners actively searching for your services — and we optimize weekly so every dollar works harder.",
     icon: <CursorArrowRaysIcon className="h-7 w-7" />,
     image: SERVICE_IMAGES.ppc,
     features: [
-      "Google Search and Local Service Ads",
-      "Facebook and Instagram lead generation",
-      "Custom landing pages for each campaign",
-      "Call tracking and lead attribution",
-      "A/B testing for continuous improvement",
-      "Budget optimization and waste reduction",
+      "Google Search & Local Service Ads setup and management",
+      "Meta (Facebook & Instagram) lead generation campaigns",
+      "Audience targeting by service area, demographics, and intent",
+      "Ad copy and creative tailored to each trade",
+      "Weekly optimization + monthly performance reports",
     ],
+    result:
+      "Avg. $8 return on every $1 spent. First qualified calls within 7-14 days.",
   },
   {
-    name: "Website Design & Development",
+    name: "Social Media",
+    tagline: "Build Trust Before They Even Pick Up the Phone",
     description:
-      "High-converting websites built to turn visitors into paying customers. Mobile-first, fast-loading, and designed with one goal: getting your phone to ring.",
-    icon: <ComputerDesktopIcon className="h-7 w-7" />,
-    image: SERVICE_IMAGES.webDesign,
+      "Homeowners check your social media before they call. If your last post is from 6 months ago, they're calling your competitor.",
+    icon: <MegaphoneIcon className="h-7 w-7" />,
+    image: SERVICE_IMAGES.gmb,
     features: [
-      "Mobile-first responsive design",
-      "Click-to-call on every page",
-      "Online scheduling integration",
-      "SEO-optimized structure and content",
-      "Fast load times and Core Web Vitals",
-      "Conversion rate optimization",
+      "Content creation (posts, stories, reels) tailored to your trade",
+      "Posting schedule across Facebook and Instagram",
+      "Review highlights, job showcases, and seasonal content",
+      "Community engagement and response management",
+      "Monthly content calendar you approve in advance",
     ],
+    result: "Avg. 3x more engagement than DIY posting.",
   },
   {
-    name: "Google My Business (GMB)",
+    name: "Google Business Profile",
+    tagline: "Own the Map. Own the Calls.",
     description:
-      "Your Google Business Profile is often the first thing potential customers see. We optimize it to stand out in Maps, generate reviews, and drive calls — making you the obvious choice in your area.",
+      "Your Google Business Profile is often the first thing a customer sees. If it's incomplete, outdated, or buried, you're invisible.",
     icon: <MapPinIcon className="h-7 w-7" />,
     image: SERVICE_IMAGES.gmb,
     features: [
-      "Complete profile optimization",
-      "Review generation and response management",
-      "Weekly Google Posts for engagement",
-      "Photo and video optimization",
-      "Q&A monitoring and management",
-      "Local pack ranking improvement",
+      "Full profile setup and optimization",
+      "Photo and video uploads that showcase your work",
+      "Review generation strategy and response templates",
+      "Weekly posts and offers to keep your profile active",
+      "Competitor monitoring in your local market",
     ],
+    result:
+      "Up to 70% more direction requests and 50% more calls than unoptimized listings.",
+  },
+];
+
+const comparison = [
+  {
+    feature: "Monthly Cost",
+    leadscale: "$1,999",
+    agency: "$3,000–$7,000",
+    diy: '"Free" (+ your time)',
   },
   {
-    name: "Email Marketing",
-    description:
-      "Stay top-of-mind with past customers and nurture leads who aren't ready to buy yet. Our automated email campaigns drive repeat business, referrals, and long-term customer relationships.",
-    icon: <EnvelopeIcon className="h-7 w-7" />,
-    image: SERVICE_IMAGES.email,
-    features: [
-      "Automated welcome and follow-up sequences",
-      "Seasonal maintenance reminders",
-      "Referral incentive campaigns",
-      "Monthly newsletters with tips and offers",
-      "Re-engagement campaigns for lapsed customers",
-      "Performance tracking and optimization",
-    ],
+    feature: "Contractor Expertise",
+    leadscale: "Yes",
+    agency: "Sometimes",
+    diy: "No",
   },
+  {
+    feature: "SEO + Ads + Social",
+    leadscale: "All included",
+    agency: "Sold separately",
+    diy: "Hit or miss",
+  },
+  {
+    feature: "Dedicated Manager",
+    leadscale: "Yes",
+    agency: "Rotating reps",
+    diy: "You",
+  },
+  {
+    feature: "Long-Term Contract",
+    leadscale: "No",
+    agency: "Usually 6-12 months",
+    diy: "No",
+  },
+  {
+    feature: "Results Tracking",
+    leadscale: "Every lead tracked",
+    agency: "Vanity metrics",
+    diy: "Guesswork",
+  },
+];
+
+const pricingFeatures = [
+  "Search Engine Optimization (SEO)",
+  "Google Ads Management",
+  "Meta Ads Management (Facebook + Instagram)",
+  "Social Media Management & Content",
+  "Google Business Profile Optimization",
+  "Monthly Performance Reports",
+  "Dedicated Account Manager",
 ];
 
 export default function ServicesPage() {
@@ -117,21 +156,44 @@ export default function ServicesPage() {
             Our Services
           </span>
           <h1 className="font-heading text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">
-            Marketing That{" "}
+            Everything Your Business Needs to Grow.{" "}
             <GradientText className="bg-gradient-to-r from-primary-400 to-accent-400">
-              Fills Your Schedule
+              One Plan. $1,999/Month.
             </GradientText>
           </h1>
           <p className="text-lg text-neutral-300 max-w-2xl mx-auto mb-8">
-            From SEO to email marketing, we provide everything contractors need
-            to dominate their local market and generate a consistent flow of
-            qualified leads.
+            SEO + Google Ads + Meta Ads + Social Media + Google Business
+            Profile — all managed by a team that only works with contractors.
           </p>
-          <Button href="/contact" size="lg" className="shadow-[0_0_30px_rgba(37,99,235,0.3)]">
-            Get Your Free Strategy Call
+          <Button
+            href="/contact"
+            size="lg"
+            className="shadow-[0_0_30px_rgba(37,99,235,0.3)]"
+          >
+            Get My Free Growth Plan
           </Button>
         </div>
       </section>
+
+      {/* Intro */}
+      <SectionWrapper bgColor="bg-neutral-50">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="font-heading text-2xl md:text-3xl font-bold text-neutral-900 mb-6">
+            Piecemeal Marketing Doesn&apos;t Work. Here&apos;s What Does.
+          </h2>
+          <p className="text-neutral-600 leading-relaxed text-lg">
+            Most contractors hire one vendor for SEO, another for ads, and try
+            to handle social media themselves. The result? Nothing works
+            together, nobody&apos;s accountable, and your budget disappears.
+          </p>
+          <p className="text-neutral-600 leading-relaxed text-lg mt-4">
+            LeadScale runs everything under one roof. Your SEO feeds your ads.
+            Your social builds trust. Your Google Business Profile converts
+            searchers into callers. It&apos;s one machine built to do one thing:
+            fill your schedule.
+          </p>
+        </div>
+      </SectionWrapper>
 
       {/* Services */}
       {services.map((service, index) => (
@@ -162,9 +224,12 @@ export default function ServicesPage() {
               <div className="w-12 h-12 rounded-xl bg-primary-100 text-primary-600 flex items-center justify-center mb-5">
                 {service.icon}
               </div>
-              <h2 className="font-heading text-2xl md:text-3xl font-bold text-neutral-900 mb-4">
+              <h2 className="font-heading text-2xl md:text-3xl font-bold text-neutral-900 mb-2">
                 {service.name}
               </h2>
+              <p className="text-lg font-semibold text-primary-600 mb-4">
+                {service.tagline}
+              </p>
               <p className="text-neutral-600 leading-relaxed mb-6">
                 {service.description}
               </p>
@@ -179,13 +244,115 @@ export default function ServicesPage() {
                   </li>
                 ))}
               </ul>
-              <Button href="/contact" variant="secondary" size="sm">
-                Get Started
-              </Button>
+              <p className="text-sm font-semibold text-accent-600 bg-accent-50 px-4 py-2 rounded-lg inline-block">
+                {service.result}
+              </p>
             </div>
           </div>
         </SectionWrapper>
       ))}
+
+      {/* Transparency */}
+      <SectionWrapper bgColor="bg-neutral-900">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-white mb-6">
+            Full Transparency
+          </h2>
+          <p className="text-neutral-400 text-lg leading-relaxed mb-4">
+            No mystery. No marketing jargon in a PDF. You get a clear monthly
+            report showing: how many calls came in, what they cost, where they
+            came from, and what we&apos;re doing next month to get you more.
+          </p>
+          <p className="text-neutral-400 text-lg leading-relaxed">
+            Plus, you get a dedicated account manager — someone who knows your
+            business, picks up the phone, and actually gives a damn.
+          </p>
+        </div>
+      </SectionWrapper>
+
+      {/* Pricing */}
+      <SectionWrapper bgColor="bg-white">
+        <div className="max-w-xl mx-auto text-center">
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-neutral-900 mb-2">
+            One Plan. Everything Included.
+          </h2>
+          <div className="bg-neutral-50 rounded-2xl shadow-card border border-neutral-100 p-8 md:p-10 mt-10">
+            <p className="text-5xl md:text-6xl font-heading font-extrabold text-neutral-900 mb-2">
+              $1,999
+              <span className="text-2xl text-neutral-500 font-medium">
+                /month
+              </span>
+            </p>
+            <ul className="text-left space-y-3 mt-8 mb-8">
+              {pricingFeatures.map((feature) => (
+                <li key={feature} className="flex items-start gap-3">
+                  <CheckIcon className="h-5 w-5 text-primary-600 shrink-0 mt-0.5" />
+                  <span className="text-neutral-700">{feature}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="text-sm text-neutral-500 mb-6">
+              No setup fees. No long-term contracts. Cancel anytime.
+            </p>
+            <Button href="/contact" size="lg" className="w-full">
+              Start Growing Today
+            </Button>
+          </div>
+        </div>
+      </SectionWrapper>
+
+      {/* Comparison Table */}
+      <SectionWrapper bgColor="bg-neutral-50">
+        <div className="text-center mb-10">
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-neutral-900">
+            How LeadScale Stacks Up
+          </h2>
+        </div>
+        <div className="max-w-3xl mx-auto overflow-x-auto">
+          <table className="w-full text-left">
+            <thead>
+              <tr className="border-b-2 border-neutral-200">
+                <th className="py-4 px-4 text-sm font-semibold text-neutral-500" />
+                <th className="py-4 px-4 text-sm font-bold text-primary-600">
+                  LeadScale
+                </th>
+                <th className="py-4 px-4 text-sm font-semibold text-neutral-500">
+                  Typical Agency
+                </th>
+                <th className="py-4 px-4 text-sm font-semibold text-neutral-500">
+                  DIY
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {comparison.map((row) => (
+                <tr
+                  key={row.feature}
+                  className="border-b border-neutral-100"
+                >
+                  <td className="py-4 px-4 text-sm font-semibold text-neutral-900">
+                    {row.feature}
+                  </td>
+                  <td className="py-4 px-4 text-sm font-semibold text-primary-600">
+                    {row.leadscale}
+                  </td>
+                  <td className="py-4 px-4 text-sm text-neutral-500">
+                    {row.agency}
+                  </td>
+                  <td className="py-4 px-4 text-sm text-neutral-500">
+                    {row.diy}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div className="text-center mt-10">
+          <Button href="/contact" size="lg">
+            See Why Contractors Switch to LeadScale
+          </Button>
+        </div>
+      </SectionWrapper>
 
       <FinalCTA />
     </>

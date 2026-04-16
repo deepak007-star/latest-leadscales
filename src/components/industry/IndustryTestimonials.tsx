@@ -1,18 +1,14 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { fadeUp, staggerContainer } from "@/lib/animations";
 import SectionWrapper from "@/components/shared/SectionWrapper";
-import StarRating from "@/components/shared/StarRating";
-import { TESTIMONIAL_AVATARS } from "@/lib/images";
 
 interface IndustryTestimonialsProps {
   testimonials: {
-    name: string;
-    company: string;
     quote: string;
-    rating: number;
+    attribution: string;
+    result: string;
   }[];
   industryName: string;
 }
@@ -22,7 +18,7 @@ export default function IndustryTestimonials({
   industryName,
 }: IndustryTestimonialsProps) {
   return (
-    <SectionWrapper bgColor="bg-neutral-50" id="testimonials">
+    <SectionWrapper bgColor="bg-white" id="results">
       <div className="max-w-3xl mx-auto text-center mb-14">
         <motion.div
           initial="hidden"
@@ -31,14 +27,11 @@ export default function IndustryTestimonials({
           variants={fadeUp}
         >
           <span className="inline-flex items-center px-3 py-1 bg-primary-50 text-primary-600 rounded-full text-xs font-semibold uppercase tracking-wider mb-4">
-            Testimonials
+            Real Results
           </span>
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-neutral-900 mb-4">
-            Trusted by {industryName} Professionals
+            What {industryName} Businesses Say
           </h2>
-          <p className="text-neutral-600 text-lg">
-            Real results from real businesses in your industry.
-          </p>
         </motion.div>
       </div>
 
@@ -47,35 +40,23 @@ export default function IndustryTestimonials({
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto"
+        className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto"
       >
         {testimonials.map((testimonial, index) => (
           <motion.div
             key={index}
             variants={fadeUp}
-            className="bg-white rounded-2xl p-7 shadow-card hover:shadow-card-hover transition-all duration-300 border border-neutral-100"
+            className="bg-neutral-50 rounded-2xl p-7 border border-neutral-100 hover:shadow-card-hover transition-all duration-300 h-full flex flex-col"
           >
-            <StarRating rating={testimonial.rating} className="mb-5" />
-            <blockquote className="text-neutral-700 mb-6 leading-relaxed text-[15px]">
+            <blockquote className="text-neutral-700 mb-5 leading-relaxed text-[15px] flex-1">
               &ldquo;{testimonial.quote}&rdquo;
             </blockquote>
-            <div className="flex items-center gap-3 pt-5 border-t border-neutral-100">
-              <div className="w-11 h-11 rounded-full overflow-hidden ring-2 ring-primary-100">
-                <Image
-                  src={TESTIMONIAL_AVATARS[index % TESTIMONIAL_AVATARS.length]}
-                  alt={testimonial.name}
-                  width={44}
-                  height={44}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div>
-                <p className="font-semibold text-neutral-900 text-sm">
-                  {testimonial.name}
-                </p>
-                <p className="text-xs text-neutral-500">{testimonial.company}</p>
-              </div>
-            </div>
+            <p className="text-xs font-semibold text-accent-600 bg-accent-50 px-3 py-1.5 rounded-full inline-block mb-4 self-start">
+              Result: {testimonial.result}
+            </p>
+            <p className="text-sm text-neutral-500 pt-4 border-t border-neutral-200/60">
+              — {testimonial.attribution}
+            </p>
           </motion.div>
         ))}
       </motion.div>

@@ -4,7 +4,6 @@ import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import StickyPhoneBar from "@/components/layout/StickyPhoneBar";
 import FloatingCTA from "@/components/layout/FloatingCTA";
 
 const inter = Inter({
@@ -20,9 +19,9 @@ const plusJakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "LeadScale | Marketing & Lead Generation for Contractors",
+  title: "Contractor Marketing That Actually Works | LeadScale",
   description:
-    "LeadScale delivers more calls, more leads, and more revenue for contractors. SEO, Paid Ads, Web Design, GMB & Email Marketing. Get your free strategy call.",
+    "SEO, Google Ads, and social media for HVAC, plumbing, roofing, and electrical contractors. $1,999/mo. No contracts.",
   keywords:
     "contractor marketing, lead generation, HVAC marketing, plumber marketing, roofing leads, digital marketing for contractors",
 };
@@ -46,7 +45,6 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
-        <StickyPhoneBar />
         <FloatingCTA />
         <Script
           src="https://assets.calendly.com/assets/external/widget.js"
