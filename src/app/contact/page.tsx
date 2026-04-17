@@ -6,7 +6,6 @@ import {
 } from "@heroicons/react/24/outline";
 import { EMAIL } from "@/lib/constants";
 import LeadForm from "@/components/shared/LeadForm";
-import CalendlyEmbed from "@/components/shared/CalendlyEmbed";
 import GradientText from "@/components/shared/GradientText";
 
 export const metadata: Metadata = {
@@ -133,7 +132,7 @@ export default function ContactPage() {
                     <div>
                       <p className="text-xs text-neutral-500">Hours</p>
                       <p className="font-semibold">
-                        Monday–Friday, 9am–6pm EST
+                        Monday–Friday, 8am–8pm PST
                       </p>
                     </div>
                   </div>
@@ -147,8 +146,6 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-
-      <CalendlyEmbed />
     </>
   );
 }

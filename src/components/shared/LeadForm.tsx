@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Button from "./Button";
-import { CALENDLY_URL } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 const INDUSTRY_OPTIONS = [
@@ -66,13 +65,6 @@ export default function LeadForm({
       if (!res.ok) throw new Error("Failed");
 
       setSubmitted(true);
-
-      // Open Calendly popup after a brief delay so user sees the success state
-      setTimeout(() => {
-        if (window.Calendly) {
-          window.Calendly.initPopupWidget({ url: CALENDLY_URL });
-        }
-      }, 1000);
     } catch {
       setError(true);
     } finally {
@@ -96,19 +88,6 @@ export default function LeadForm({
           We&apos;ll be in touch within 2 business hours to schedule your free
           strategy call.
         </p>
-        <p className="mt-3 text-sm text-neutral-400">
-          Calendly is opening so you can pick a time...
-        </p>
-        <button
-          onClick={() => {
-            if (window.Calendly) {
-              window.Calendly.initPopupWidget({ url: CALENDLY_URL });
-            }
-          }}
-          className="mt-4 text-primary-600 font-semibold hover:text-primary-700 underline cursor-pointer"
-        >
-          Book a Time Now
-        </button>
       </div>
     );
   }

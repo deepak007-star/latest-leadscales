@@ -8,7 +8,6 @@ import IndustryWhatYouGet from "@/components/industry/IndustryWhatYouGet";
 import IndustryTestimonials from "@/components/industry/IndustryTestimonials";
 import IndustryFAQ from "@/components/industry/IndustryFAQ";
 import LeadForm from "@/components/shared/LeadForm";
-import CalendlyEmbed from "@/components/shared/CalendlyEmbed";
 import IndustryCTA from "@/components/industry/IndustryCTA";
 
 interface PageProps {
@@ -104,7 +103,6 @@ export default function IndustryPage({ params }: PageProps) {
         </div>
       </div>
 
-      <CalendlyEmbed />
       <IndustryCTA data={industry} />
     </>
   );

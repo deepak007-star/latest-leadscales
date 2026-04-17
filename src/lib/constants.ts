@@ -1,6 +1,5 @@
 export const COMPANY_NAME = "LeadScale";
 export const EMAIL = "growth@leadscaleservice.com";
-export const CALENDLY_URL = "https://calendly.com/leadscale_service";
 
 export const NAV_LINKS = [
   { label: "Services", href: "/services" },
